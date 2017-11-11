@@ -39,4 +39,15 @@ DocumentRoot /home/ubuntu/workspace/public
 
 * Source: https://community.c9.io/t/getting-started-with-laravel/1608
 
+## Update Laravel
+
+* sudo composer update
+
+## Setup your database to work with Laravel
+
+* mysql-ctl cli
+* use c9;
+* select @@hostname;
+* exit
+
 # This tutorial is still being made. My apologies.
