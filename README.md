@@ -31,10 +31,10 @@ A simple crud using Laravel and Materrialize on Cloud9.
 
 ### Then do the following:
 
-// Change this line
+// Change this line <br>
 DocumentRoot /home/ubuntu/workspace
 
-// To following
+// To following <br>
 DocumentRoot /home/ubuntu/workspace/public
 
 * Source: https://community.c9.io/t/getting-started-with-laravel/1608
