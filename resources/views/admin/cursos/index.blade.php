@@ -1,16 +1,15 @@
 @extends('layout.site')
 
-@section('titulo', 'Cursos')
+@section('titulo', 'Eventos')
 
 @section('conteudo')
     
     <div class="container">
-        <h3 class="center">Lista de cursos</h3>
+        <h3 class="center">Lista de eventos</h3>
         <div class="row">
             <table>
                 <thead>
                     <tr>
-                        <th>Id</th>
                         <th>Título</th>
                         <th>Descrição</th>
                         <th>Imagem</th>
@@ -21,7 +20,6 @@
                 <tbody>
                     @foreach($registros as $registro)
                     <tr>
-                        <td>{{$registro->id}}</td>
                         <td>{{$registro->titulo}}</td>
                         <td>{{$registro->descricao}}</td>
                         <td><img height="60" src="{{asset($registro->imagem)}}" alt="{{$registro->titulo}}"/></td>

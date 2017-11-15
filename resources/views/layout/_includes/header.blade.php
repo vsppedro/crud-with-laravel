@@ -16,16 +16,31 @@
 <header>
   <nav>
     <div class="nav-wrapper deep-orange">
-      <a href="#!" class="brand-logo">Curso de Laravel</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="/">Home</a></li>
-        <li><a href="{{route('admin.cursos')}}">Cursos</a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="/">Home</a></li>
-        <li><a href="{{route('admin.cursos')}}">Cursos</a></li>
-      </ul>
+      <div class="container">
+        <a href="#!" class="brand-logo">Marca aí</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          @if(Auth::guest())
+            <li><a href="{{route('login')}}">Login</a></li>
+            <li><a href="{{route('site.cadastrar')}}">Cadastro</a></li>
+          @else
+            <li><a href="{{route('admin.cursos')}}">Eventos</a></li>
+            <li><a href="#">{{Auth::user()->name}}</a></li>
+            <li><a href="{{route('site.login.sair')}}">Sair</a></li>
+          @endif
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a href="/">Home</a></li>
+          @if(Auth::guest())
+            <li><a href="{{route('login')}}">Login</a></li>
+          @else
+            <li><a href="{{route('admin.cursos')}}">Eventos</a></li>
+            <li><a href="#">{{Auth::user()->name}}</a></li>
+            <li><a href="{{route('site.login.sair')}}">Sair</a></li>
+          @endif
+        </ul>
+      </div>
     </div>
   </nav>
 </header>
