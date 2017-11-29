@@ -4,19 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Curso;
+use App\Evento;
+use Auth;
 
-class CursoController extends Controller
+class EventoController extends Controller
 {
     public function index()
     {
-        $registros = Curso::all();
-        return view('admin.cursos.index', compact('registros'));
+        //$registros = Evento::where('usuario_id', Auth::user()->id)->get();
+        $registros = Evento::where('usuario_id', Auth::user()->id)->paginate();
+        return view('admin.eventos.index', compact('registros'));
     }
     
     public function adicionar()
     {
-        return view('admin.cursos.adicionar');
+        return view('admin.eventos.adicionar');
     }
     
     public function salvar(Request $req)
@@ -32,22 +34,22 @@ class CursoController extends Controller
         if($req->hasFile('imagem')){
             $imagem = $req->file('imagem');
             $num = rand(1111, 9999);
-            $dir = "img/cursos";
+            $dir = "img/eventos";
             $ex = $imagem->guessClientExtension();
             $nomeImagem = "imagem_".$num.".".$ex;
             $imagem->move($dir, $nomeImagem);
             $dados['imagem'] = $dir."/".$nomeImagem;
         }
         
-        Curso::create($dados);
+        Evento::create($dados);
         
-        return redirect()->route('admin.cursos');
+        return redirect()->route('admin.eventos');
     }
     
     public function editar($id)
     {
-        $registro = Curso::find($id);
-        return view('admin.cursos.editar', compact('registro'));
+        $registro = Evento::find($id);
+        return view('admin.eventos.editar', compact('registro'));
     }
     
     public function atualizar(Request $req, $id)
@@ -63,21 +65,21 @@ class CursoController extends Controller
         if($req->hasFile('imagem')){
             $imagem = $req->file('imagem');
             $num = rand(1111, 9999);
-            $dir = "img/cursos";
+            $dir = "img/eventos";
             $ex = $imagem->guessClientExtension();
             $nomeImagem = "imagem_".$num.".".$ex;
             $imagem->move($dir, $nomeImagem);
             $dados['imagem'] = $dir."/".$nomeImagem;
         }
         
-        Curso::find($id)->update($dados);
+        Evento::find($id)->update($dados);
         
-        return redirect()->route('admin.cursos');
+        return redirect()->route('admin.eventos');
     }
     
     public function deletar($id)
     {
-        Curso::find($id)->delete();
-        return redirect()->route('admin.cursos');
+        Evento::find($id)->delete();
+        return redirect()->route('admin.eventos');
     }
 }

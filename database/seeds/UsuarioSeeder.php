@@ -13,8 +13,12 @@ class UsuarioSeeder extends Seeder
     public function run()
     {
         $dados = [
-            'name'=>'Pedro Paiva',
+            'name'=>'Pedro',
+            'lastname'=>'Paiva',
+            'login'=>'vsppaiva',
+            'cpfcnpj'=>'096.147.244-80',
             'email'=>'admin@mail.com',
+            'telefone'=>'',
             'password'=>bcrypt('root'),
         ];
         

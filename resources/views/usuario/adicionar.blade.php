@@ -1,15 +1,15 @@
 @extends('layout.site')
 
-@section('titulo', 'Eventos')
+@section('titulo', 'Usuário')
 
 @section('conteudo')
     
     <div class="container">
-        <h3 class="center">Adicionar evento</h3>
+        <h3 class="center">Cadastro</h3>
         <div class="row">
-            <form class="" action="{{route('admin.cursos.salvar')}}" method="post" enctype="multipart/form-data">
+            <form class="" action="{{route('site.usuario.salvar')}}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                @include('admin.cursos._form')
+                @include('usuario._form')
                 <button class="btn deep-orange">Salvar</button>
             </form>
         </div>

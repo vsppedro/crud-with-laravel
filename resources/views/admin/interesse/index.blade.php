@@ -5,26 +5,23 @@
 @section('conteudo')
     
     <div class="container">
-        <h3 class="center">Eventos Disponíveis</h3>
+        <h3 class="center">Lista de Interesse</h3>
         <div class="row">
-            @foreach($eventos as $evento)
+            @foreach($registros as $registro)
             <div class="col s12 m4">
                 <div class="card">
                     <div class="card-image">
-                        <img src="{{asset($evento->imagem)}}">
+                        <img src="{{asset($registro->imagem)}}">
                     </div>
                     <div class="card-content">
-                        <h4>{{$evento->titulo}}</h4>
-                        <p>{{$evento->descricao}}</p>
+                        <h4>{{$registro->titulo}}</h4>
+                        <p>{{$registro->descricao}}</p>
                     </div>
-                    @if(Auth::guest())
-                    @else
                     <div class="card-action">
-                        <a href="{{route('admin.interesse.salvar',$evento->id)}}">Add a lista de Interesse</a>
+                        <a href="{{route('site.interesse.interessados',$registro->id)}}">Ver Interessados</a>
                     </div>
-                    @endif
                     <div class="card-action">
-                        <a href="{{route('site.interesse.interessados',$evento->id)}}">Ver Interessados</a>
+                        <a href="{{route('admin.interesse.deletar',$registro->id)}}">Remover</a>
                     </div>
                 </div>
             </div>
@@ -32,7 +29,7 @@
         </div>
         
         <div class="row" align="center">
-            {{$eventos->links()}}
+            {{$registros->links()}}
         </div>
     </div>
 

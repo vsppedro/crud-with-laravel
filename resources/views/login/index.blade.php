@@ -1,6 +1,6 @@
 @extends('layout.site')
 
-@section('titulo', 'Cursos')
+@section('titulo', 'Marca Aí')
 
 @section('conteudo')
     
@@ -24,8 +24,8 @@
         
                 <div class='row'>
                   <div class='input-field col s12'>
-                    <input class='validate' type='email' name='email'/>
-                    <label for='email'>E-mail</label>
+                    <input class='validate' type='text' name='email'/>
+                    <label for='email'>E-mail ou Login</label>
                   </div>
                 </div>
         
@@ -48,7 +48,7 @@
               </form>
             </div>
           </div>
-          <a href="#!">Criar conta</a>
+          <a href="{{route('site.usuario.adicionar')}}">Criar Conta</a>
         </center>
     
         <div class="section"></div>

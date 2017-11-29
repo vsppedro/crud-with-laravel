@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Curso extends Model
+class Evento extends Model
 {
   protected $fillable = [
-      'titulo','descricao','valor','imagem','publicado'
+      'titulo','descricao','valor','imagem', 'data', 'usuario_id'
   ];
 }
